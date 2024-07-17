@@ -11,7 +11,7 @@ de2 = pysat.Constellation(const_module=pysatNASA.constellations.de2)
 
 # Now initialize the ACE real-time Constellation
 ace_rt = pysat.Constellation(platforms=['ace'], tags=['realtime'])
-ace_rt.download()
+# ace_rt.download()
 ace_rt.load(date=ace_rt.today())
 
 for i, inst in enumerate(ace_rt.instruments):
