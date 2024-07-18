@@ -81,10 +81,15 @@ for inst in const.instruments:
     print("Vars for " + inst.inst_id)
     print(inst.variables)
 
-
+'''
 # convert to instrument
 inst = const.to_inst()
 print("Variables:")
 print(inst.variables)
+'''
+
+
+
+
 
 
