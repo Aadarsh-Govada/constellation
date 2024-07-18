@@ -63,8 +63,12 @@ print("done")'''
 dtarr = [dt.datetime(2021, 1, 1)]
 
 const = pysat.Constellation(instruments=inst_list, date_array = dtarr)
-print("downloading -------------------------------------------------------------------------------------------------------------------")
+'''print("directly downloading -------------------------------------------------------------------------------------------------------------------")
 const.download()
 print("download complete")
 const.load(date=const.today())
 
+'''
+# Instrument level download
+for inst in const.instruments:
+    inst.download(date_array=dtarr)
