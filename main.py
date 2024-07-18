@@ -14,28 +14,57 @@ for i in range(1, 7):
 print(inst_list)
 print("\n\n\n")
 
+'-------------------------------Define local methods/params---------------------------------------------------'
+
+
+def _call_inst_method(instruments, method, *args, **kwargs):
+        """Call a method across all instrumennts.
+
+        Parameters
+        ----------
+        instruments: list-like
+            List of instruments
+        method : str
+            Instrument method name
+        *args : list-like
+            Optional list of arguments for the method
+        **kwargs : dict-like
+            Optional dict of keyword arguments for the method
+
+        Raises
+        ------
+        AttributeError
+            If `method` is missing from any Constellation Instrument.
+
+        """
+
+        for instrument in instruments:
+            # Test to see that method exists
+            if not hasattr(instrument, method):
+                raise AttributeError(
+                    'unknown method {:} in Instrument {:}'.format(
+                        repr(method), repr(instrument)))
+
+            # Apply method to Instrument
+            inst_method = getattr(instrument, method)
+            inst_method(*args, **kwargs)
+
+        return
+
+
 '-------------------------------Initialize Constellation---------------------------------------------------'
 
 
 dtarr = [dt.datetime(2021, 1, 1)]
 kwargs = {'date_array' : dtarr}
 
+_call_inst_method(instruments=inst_list, method='download', date_array = dtarr)
+print("done")
 
 
-const = pysat.Constellation(instruments=inst_list)
-print("downloading --------------------------------------------------------------------------------------------------------------------------")
+'''const = pysat.Constellation(instruments=inst_list)
+print("downloading -------------------------------------------------------------------------------------------------------------------")
 const.download()
 print("download complete")
-const.load(date=const.today())
+const.load(date=const.today())'''
 
-'''
-print(const.instruments)
-
-# Convert the output to an Instrument
-ivm_inst = const.to_inst()
-print(ivm_inst)
-
-print("Vars: ")
-print(ivm_inst.variables)
-
-'''
