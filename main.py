@@ -74,19 +74,19 @@ const.load(date=dtarr[0])
 for inst in const.instruments:
     print("downloading for " + inst.inst_id)
     inst.download(date_array=dtarr)
-    print("done")'''
+    print("done")
 
 print("Variables by inst: ")
 for inst in const.instruments:
     print("Vars for " + inst.inst_id)
     print(inst.variables)
-
 '''
+
 # convert to instrument
 inst = const.to_inst()
 print("Variables:")
 print(inst.variables)
-'''
+
 
 
 
