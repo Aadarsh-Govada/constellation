@@ -15,7 +15,7 @@ print(inst_list)
 print("\n\n\n")
 
 '-------------------------------Define local methods/params---------------------------------------------------'
-
+'''
 
 def _call_inst_method(instruments, method, *args, **kwargs):
         """Call a method across all instrumennts.
@@ -55,16 +55,16 @@ def _call_inst_method(instruments, method, *args, **kwargs):
 '-------------------------------Initialize Constellation---------------------------------------------------'
 
 
-dtarr = [dt.datetime(2021, 1, 1)]
-kwargs = {'date_array' : dtarr}
+
 
 _call_inst_method(instruments=inst_list, method='download', date_array = dtarr)
-print("done")
+print("done")'''
 
+dtarr = [dt.datetime(2021, 1, 1)]
 
-'''const = pysat.Constellation(instruments=inst_list)
+const = pysat.Constellation(instruments=inst_list, date_array = dtarr)
 print("downloading -------------------------------------------------------------------------------------------------------------------")
 const.download()
 print("download complete")
-const.load(date=const.today())'''
+const.load(date=const.today())
 
