@@ -66,7 +66,7 @@ const = pysat.Constellation(instruments=inst_list)
 print("downloading -------------------------------------------------------------------------------------------------------------------")
 const.download(date_array = dtarr)
 print("download complete")
-const.load(date=const.today())
+# const.load(date=const.today())
 
 
 '''
