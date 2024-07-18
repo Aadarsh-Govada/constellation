@@ -3,21 +3,28 @@ from pysatCDAAC.instruments import cosmic2_ivm as ivm
 import datetime as dt
 
 
-dtarr = [dt.datetime(2021, 1, 1)]
 
+'-------------------------------Initialize Instruments---------------------------------------------------'
 inst_list = list()
 inst_id = 'e'
 
-for i in range(1, 3):
+for i in range(1, 7):
     inst = pysat.Instrument(inst_module=ivm, inst_id=inst_id + str(i))
     inst_list.append(inst)
 print(inst_list)
 print("\n\n\n")
 
+'-------------------------------Initialize Constellation---------------------------------------------------'
+
+
+dtarr = [dt.datetime(2021, 1, 1)]
+kwargs = {'date_array' : dtarr}
+
+
 
 const = pysat.Constellation(instruments=inst_list)
 print("downloading --------------------------------------------------------------------------------------------------------------------------")
-const.download(dtarr)
+const.download()
 print("download complete")
 const.load(date=const.today())
 
