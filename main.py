@@ -1,6 +1,9 @@
 import pysat
 from pysatCDAAC.instruments import cosmic2_ivm as ivm
+import datetime as dt
 
+
+dtarr = [dt.datetime(2021, 1, 1)]
 
 inst_list = list()
 inst_id = 'e'
@@ -13,9 +16,12 @@ print("\n\n\n")
 
 
 const = pysat.Constellation(instruments=inst_list)
-const.download()
+print("downloading --------------------------------------------------------------------------------------------------------------------------")
+const.download(dtarr)
+print("download complete")
 const.load(date=const.today())
 
+'''
 print(const.instruments)
 
 # Convert the output to an Instrument
@@ -25,3 +31,4 @@ print(ivm_inst)
 print("Vars: ")
 print(ivm_inst.variables)
 
+'''
