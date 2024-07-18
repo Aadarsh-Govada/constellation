@@ -16,12 +16,12 @@ const = pysat.Constellation(instruments=inst_list)
 const.download()
 const.load(date=const.today())
 
-for i, inst in enumerate(const.instruments):
-    print(const.names[i], inst.files.files[-1])
+print(const.instruments)
 
 # Convert the output to an Instrument
 ivm_inst = const.to_inst()
 print(ivm_inst)
 
+print("Vars: ")
 print(ivm_inst.variables)
 
