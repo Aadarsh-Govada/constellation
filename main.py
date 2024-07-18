@@ -75,3 +75,9 @@ for inst in const.instruments:
     print("downloading for " + inst.inst_id)
     inst.download(date_array=dtarr)
     print("done")'''
+
+
+# convert to instrument
+inst = const.to_inst()
+print("Variables:")
+print(inst.variables)
